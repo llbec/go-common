@@ -31,6 +31,3 @@ vendor/
 driver/
 */vcam_strm
 vcam_strm/
-
-#go mod file
-go.sum
