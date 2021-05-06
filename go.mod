@@ -1,4 +1,4 @@
-module gocommon
+module github.com/llbec/gocommon
 
 go 1.16
 
