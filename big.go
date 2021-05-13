@@ -1,4 +1,4 @@
-package common
+package gocommon
 
 import "math/big"
 

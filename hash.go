@@ -1,4 +1,4 @@
-package common
+package gocommon
 
 import (
 	"crypto/sha256"
