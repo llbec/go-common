@@ -7,6 +7,8 @@ type DB interface {
 	KeyValueWriter
 	Batcher
 	Iteratorer
+
+	Close() error
 }
 
 // KeyValueReader wraps the Has and Get method of a backing data store.
