@@ -1,4 +1,4 @@
-package gocommon
+package common
 
 import (
 	crand "crypto/rand"
