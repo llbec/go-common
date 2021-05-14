@@ -3,7 +3,7 @@ package mpt
 import (
 	"fmt"
 
-	common "github.com/llbec/gocommon"
+	"github.com/llbec/gocommon/common"
 )
 
 // MissingNodeError is returned by the trie functions (TryGet, TryUpdate, TryDelete)

@@ -3,7 +3,7 @@ package mpt
 import (
 	"log"
 
-	common "github.com/llbec/gocommon"
+	"github.com/llbec/gocommon/common"
 )
 
 // SecureTrie wraps a trie with key hashing. In a secure trie, all

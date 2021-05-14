@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	common "github.com/llbec/gocommon"
+	"github.com/llbec/gocommon/common"
 	"github.com/llbec/gocommon/db"
 )
 

@@ -13,7 +13,7 @@ import (
 	"testing/quick"
 
 	"github.com/davecgh/go-spew/spew"
-	common "github.com/llbec/gocommon"
+	"github.com/llbec/gocommon/common"
 	"github.com/llbec/gocommon/db"
 	"github.com/llbec/gocommon/rlp"
 )
@@ -298,12 +298,12 @@ func TestLargeValue(t *testing.T) {
 	trie.Hash()
 }
 
-type countingDB struct {
+type CountingDB struct {
 	db.DB
 	gets map[string]int
 }
 
-func (db *countingDB) Get(key []byte) ([]byte, error) {
+func (db *CountingDB) Get(key []byte) ([]byte, error) {
 	db.gets[string(key)]++
 	return db.DB.Get(key)
 }

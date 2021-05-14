@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	common "github.com/llbec/gocommon"
+	"github.com/llbec/gocommon/common"
 	"github.com/llbec/gocommon/db"
 	"github.com/llbec/gocommon/rlp"
 	//"github.com/allegro/bigcache"
@@ -61,7 +61,7 @@ type Database struct {
 // in the same cache fields).
 type rawNode []byte
 
-func (n rawNode) canUnload(uint16, uint16) bool { panic("this should never end up in a live trie") }
+func (n rawNode) CanUnload(uint16, uint16) bool { panic("this should never end up in a live trie") }
 func (n rawNode) cache() (hashNode, bool)       { panic("this should never end up in a live trie") }
 func (n rawNode) fstring(ind string) string     { panic("this should never end up in a live trie") }
 
@@ -70,7 +70,7 @@ func (n rawNode) fstring(ind string) string     { panic("this should never end u
 // the same RLP encoding as the original parent.
 type rawFullNode [17]node
 
-func (n rawFullNode) canUnload(uint16, uint16) bool { panic("this should never end up in a live trie") }
+func (n rawFullNode) CanUnload(uint16, uint16) bool { panic("this should never end up in a live trie") }
 func (n rawFullNode) cache() (hashNode, bool)       { panic("this should never end up in a live trie") }
 func (n rawFullNode) fstring(ind string) string     { panic("this should never end up in a live trie") }
 
@@ -95,7 +95,7 @@ type rawShortNode struct {
 	Val node
 }
 
-func (n rawShortNode) canUnload(uint16, uint16) bool {
+func (n rawShortNode) CanUnload(uint16, uint16) bool {
 	panic("this should never end up in a live trie")
 }
 func (n rawShortNode) cache() (hashNode, bool)   { panic("this should never end up in a live trie") }
@@ -247,10 +247,10 @@ func expandNode(hash hashNode, n node) node {
 //
 // Since trie keys are already hashes, we can just use the key directly to
 // map shard id.
-type trienodeHasher struct{}
+type TrienodeHasher struct{}
 
 // Sum64 implements the bigcache.Hasher interface.
-func (t trienodeHasher) Sum64(key string) uint64 {
+func (t TrienodeHasher) Sum64(key string) uint64 {
 	return binary.BigEndian.Uint64([]byte(key))
 }
 
@@ -830,7 +830,7 @@ func (db *Database) Size() (common.StorageSize, common.StorageSize) {
 // missing.
 //
 // This method is extremely CPU and memory intensive, only use when must.
-func (db *Database) verifyIntegrity() {
+func (db *Database) VerifyIntegrity() {
 	// Iterate over all the cached nodes and accumulate them into a set
 	reachable := map[common.Hash]struct{}{{}: {}}
 

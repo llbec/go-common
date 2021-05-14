@@ -4,7 +4,7 @@ import (
 	"hash"
 	"sync"
 
-	common "github.com/llbec/gocommon"
+	"github.com/llbec/gocommon/common"
 	"github.com/llbec/gocommon/rlp"
 	"golang.org/x/crypto/sha3"
 )

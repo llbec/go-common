@@ -5,7 +5,7 @@ import (
 	"container/heap"
 	"errors"
 
-	common "github.com/llbec/gocommon"
+	"github.com/llbec/gocommon/common"
 	"github.com/llbec/gocommon/rlp"
 )
 
